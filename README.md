@@ -8,6 +8,14 @@ The system runs daily at 8:00 AM and determines whether recovery should be prior
 
 ## Architecture
 
+The Control Plane follows an **Observe → Interpret → Decide → Act → Audit** pattern.
+
+* **Observe** – Collect readiness and recovery signals from Oura
+* **Interpret** – Evaluate recovery conditions using workflow logic
+* **Decide** – Use GPT-4o to generate recommendations and determine the appropriate response
+* **Act** – Adjust the home environment through Google Nest
+* **Audit** – Deliver a daily briefing and execution record through Gmail
+
 ![Control Plane Architecture](assets/control-plane-architecture.png)
 
 ---
